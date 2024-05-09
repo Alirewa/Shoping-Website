@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Shoping Cart</title>
+     <link rel="stylesheet" href="./build/tailwind.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+     <div class="bg-slate-200 h-full w-full">
+          <!-- APPBAR -->
+          <div class="bg-slate-100 h-12 flex items-center rounded-md justify-between p-8">
+               <img src="/ShopingCart-V2/images/logo-Meta.png" alt="logo" class="flex h-6 md:h-6">
+               <div class="flex-1 p-2 m-2 overflow-hidden justify-start hidden sm:flex">
+                    <a class="font-bold p-2 m-2 cursor-pointer text-slate-800 hover:bg-slate-200 rounded-md">Home</a>
+                    <a class="font-bold p-2 m-2 cursor-pointer text-slate-800 hover:bg-slate-200 rounded-md">Shop</a>
+                    <a class="font-bold p-2 m-2 cursor-pointer text-slate-800 hover:bg-slate-200 rounded-md">About</a>
+                    <a class="font-bold p-2 m-2 cursor-pointer text-slate-800 hover:bg-slate-200 rounded-md">Contact</a>
+               </div>
+               <div class="flex gap-6 sm:gap-2">
+                    <button data-modal-target="cart-modal" data-modal-toggle="cart-modal"
+                         class="block text-blue-700 bg-blue-100 hover:bg-blue-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                         type="button">
+                         <i class="fas fa-cart-plus mr-2"></i> Cart </button>
+
+                    <button data-modal-target="account-modal" data-modal-toggle="account-modal"
+                         class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                         type="button">
+                         <i class="fas fa-user-plus mr-2"></i> Account </button>
+
+                    <!-- account modal -->
+                    <div id="account-modal" tabindex="-1" aria-hidden="true"
+                         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                         <div class="relative p-4 w-full max-w-2xl max-h-full">
+                              <!-- Modal content -->
+                              <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-2">
+                                   <!-- Modal header -->
+                                   <div
+                                        class="flex items-center justify-between p-2 md:p-4 border-b rounded-t dark:border-gray-600">
+                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                             Sign in to your account
+                                        </h3>
+                                        <button type="button"
+                                             class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                             data-modal-hide="account-modal">
+                                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                  fill="none" viewBox="0 0 14 14">
+                                                  <path stroke="currentColor" stroke-linecap="round"
+                                                       stroke-linejoin="round" stroke-width="2"
+                                                       d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                             </svg>
+                                             <span class="sr-only">Close modal</span>
+                                        </button>
+                                   </div>
+                                   <!-- Modal body -->
+                                   <form class="space-y-4 md:space-y-6" action="#">
+                                        <div>
+                                             <label for="email"
+                                                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                                                  email</label>
+                                             <input type="email" name="email" id="email"
+                                                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                  placeholder="name@company.com" required="">
+                                        </div>
+                                        <div>
+                                             <label for="password"
+                                                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                                             <input type="password" name="password" id="password" placeholder="••••••••"
+                                                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                  required="">
+                                        </div>
+                                        <div class="flex items-center justify-between">
+                                             <div class="flex items-start">
+                                                  <div class="flex items-center h-5">
+                                                       <input id="remember" aria-describedby="remember" type="checkbox"
+                                                            class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+                                                            required="">
+                                                  </div>
+                                                  <div class="ml-3 text-sm">
+                                                       <label for="remember"
+                                                            class="text-gray-500 dark:text-gray-300">Remember
+                                                            me</label>
+                                                  </div>
+                                             </div>
+                                             <a href="#"
+                                                  class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">Forgot
+                                                  password?</a>
+                                        </div>
+                                        <button type="submit"
+                                             class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign
+                                             in</button>
+                                        <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                                             Don’t have an account yet? <a href="#"
+                                                  class="font-medium text-blue-600 hover:underline dark:text-blue-500">Sign
+                                                  up</a>
+                                        </p>
+                                   </form>
+                              </div>
+                         </div>
+                    </div>
+                    <!-- cart modal -->
+                    <div id="cart-modal" tabindex="-1" aria-hidden="true"
+                         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                         <div class="relative p-4 w-full max-w-2xl max-h-full">
+                              <!-- Modal content -->
+                              <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                   <!-- Modal header -->
+                                   <div
+                                        class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                             Cart Products: <span
+                                                  class="cartItems rounded-md text-center p-2 m-1 bg-slate-200">0</span>
+                                        </h3>
+                                        <button type="button"
+                                             class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                             data-modal-hide="cart-modal">
+                                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                  fill="none" viewBox="0 0 14 14">
+                                                  <path stroke="currentColor" stroke-linecap="round"
+                                                       stroke-linejoin="round" stroke-width="2"
+                                                       d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                             </svg>
+                                             <span class="sr-only">Close modal</span>
+                                        </button>
+                                   </div>
+                                   <!-- Modal body -->
+                                   <div class="p-4 md:p-5 space-y-4">
+                                        <div
+                                             class="cart-list space-y-8 md:grid md:grid-cols-1 lg:grid-cols-1 md:gap-6 md:space-y-0">
+                                        </div>
+
+                                   </div>
+                                   <!-- Modal footer -->
+                                   <div class="flex p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                                        <span class="cart-total flex-1 text-center font-bold text-xl p-2"></span>
+                                        <button data-modal-hide="cart-modal" type="button"
+                                             class="w-full text-blue-100 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Checkout</button>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+
+          </div>
+          <!-- Swiper -->
+          <div class="swiper mySwiper cursor-pointer">
+               <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="/ShopingCart-V2/images/slide1.webp"></div>
+                    <div class="swiper-slide"><img src="/ShopingCart-V2/images/slide2.webp"></div>
+                    <div class="swiper-slide"><img src="/ShopingCart-V2/images/gif1.gif"></div>
+               </div>
+               <div class="swiper-pagination"></div>
+          </div>
+          <div class="swiper-pagination"></div>
+
+          <!-- APP CONTENT -->
+          <div>
+               <h2 class="text-center text-4xl p-2 font-bold text-black">
+                    Our Products</h2>
+               <div class="product-list m-4 space-y-8 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6 md:space-y-0">
+
+               </div>
+          </div>
+
+          <!-- another sections! -->
+          <section>
+               <div class="py-12 px-4 mx-auto max-w-screen-xl sm:py-8 lg:px-12">
+                    <h2 class="text-center text-4xl p-4 font-bold text-black">Why Choose Our Shop?</h2>
+                    <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:space-y-0">
+                         <div class="bg-slate-100 p-4 rounded-md border border-slate-300">
+                              <div
+                                   class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
+                                   <svg class="w-5 h-5 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300"
+                                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                             d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z"
+                                             clip-rule="evenodd"></path>
+                                   </svg>
+                              </div>
+                              <h3 class="mb-2 text-xl font-bold dark:text-white">Marketing</h3>
+                              <p class="text-gray-500 dark:text-gray-400">Plan it, create it, launch it. Collaborate
+                                   seamlessly with all the organization and hit your marketing goals every month with
+                                   our marketing plan.</p>
+                         </div>
+                         <div class="bg-slate-100 p-4 rounded-md border border-slate-300">
+                              <div
+                                   class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
+                                   <svg class="w-5 h-5 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300"
+                                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                             d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z">
+                                        </path>
+                                   </svg>
+                              </div>
+                              <h3 class="mb-2 text-xl font-bold dark:text-white">Legal</h3>
+                              <p class="text-gray-500 dark:text-gray-400">Protect your organization, devices and stay
+                                   compliant with our structured workflows and custom permissions made for you.</p>
+                         </div>
+                         <div class="bg-slate-100 p-4 rounded-md border border-slate-300">
+                              <div
+                                   class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
+                                   <svg class="w-5 h-5 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300"
+                                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                             d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
+                                             clip-rule="evenodd"></path>
+                                        <path
+                                             d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z">
+                                        </path>
+                                   </svg>
+                              </div>
+                              <h3 class="mb-2 text-xl font-bold dark:text-white">Business Automation</h3>
+                              <p class="text-gray-500 dark:text-gray-400">Auto-assign tasks, send Slack messages, and
+                                   much more. Now power up with hundreds of new templates to help you get started.</p>
+                         </div>
+                         <div class="bg-slate-100 p-4 rounded-md border border-slate-300">
+                              <div
+                                   class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
+                                   <svg class="w-5 h-5 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300"
+                                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                             d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z">
+                                        </path>
+                                        <path fill-rule="evenodd"
+                                             d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z"
+                                             clip-rule="evenodd"></path>
+                                   </svg>
+                              </div>
+                              <h3 class="mb-2 text-xl font-bold dark:text-white">Finance</h3>
+                              <p class="text-gray-500 dark:text-gray-400">Audit-proof software built for critical
+                                   financial operations like month-end close and quarterly budgeting.</p>
+                         </div>
+                         <div class="bg-slate-100 p-4 rounded-md border border-slate-300">
+                              <div
+                                   class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
+                                   <svg class="w-5 h-5 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300"
+                                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                             d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z">
+                                        </path>
+                                   </svg>
+                              </div>
+                              <h3 class="mb-2 text-xl font-bold dark:text-white">Enterprise Design</h3>
+                              <p class="text-gray-500 dark:text-gray-400">Craft beautiful, delightful experiences for
+                                   both marketing and product with real cross-company collaboration.</p>
+                         </div>
+                         <div class="bg-slate-100 p-4 rounded-md border border-slate-300">
+                              <div
+                                   class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
+                                   <svg class="w-5 h-5 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300"
+                                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                             d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                                             clip-rule="evenodd"></path>
+                                   </svg>
+                              </div>
+                              <h3 class="mb-2 text-xl font-bold dark:text-white">Operations</h3>
+                              <p class="text-gray-500 dark:text-gray-400">Keep your company’s lights on with
+                                   customizable, iterative, and structured workflows built for all efficient teams and
+                                   individual.</p>
+                         </div>
+                    </div>
+               </div>
+          </section>
+
+          <section>
+               <div
+                    class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+                    <img class="w-full dark:hidden rounded-md" src="/ShopingCart-V2/images/product-8.jpeg"
+                         alt="dashboard image">
+                    <div class="mt-2 md:mt-0">
+                         <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Buy Our
+                              Products For Better Life!</h2>
+                         <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">Lorem ipsum is
+                              placeholder text commonly used in the graphic, print, and publishing industries for
+                              previewing layouts and visual mockups.
+                         </p>
+                         <a href="https://google.com/"
+                              class="inline-flex items-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-blue-400 font-medium rounded-lg text-sm px-8 py-2.5 text-center">
+                              Get started
+                              <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                   xmlns="http://www.w3.org/2000/svg">
+                                   <path fill-rule="evenodd"
+                                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                        clip-rule="evenodd"></path>
+                              </svg>
+                         </a>
+                    </div>
+               </div>
+          </section>
+
+          <!-- FOOTER -->
+          <div class="bg-slate-100 h-10 flex items-center justify-between p-10">
+               <div class="menus flex overflow-hidden justify-start">
+                    <a class="bg-slate-300 hover:bg-slate-400 transition font-semibold p-2 text-slate-500 rounded-md"
+                         href="https://github.com/Alirewa"> Check
+                         On
+                         Github (Alirewa) </a>
+               </div>
+               <a href="#" name="up"
+                    class="items-center justify-center text-slate-300 bg-slate-300 rounded-full p-2 cursor-pointer">
+                    <i class="fas fa-arrow-up text-slate-600"></i></a>
+          </div>
+     </div>
+
+     </div>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+     <script type="module" src="/ShopingCart-V2/src/js/app.js"></script>
+</body>
+
+</html>
+
+<!-- Title-Page-Seo -->
+<!-- <div class="flex bg-slate-300 items-center justify-between p-4">
+               <div>
+                    <h1 class="flex text-lg font-bold text-black text-center">Home</h1>
+                    <p class="flex font-semibold text-black text-start text-sm underline">Home > Shop</p>
+               </div>
+          </div> -->
