@@ -105,6 +105,7 @@ var swiper = new Swiper(".mySwiper", {
         this.removeItem(_removedItem.id);
         Storage.saveCart(cart);
         cartContent.removeChild(removeItem.parentElement);
+        
       })
     }
     removeItem(id) {

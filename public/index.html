@@ -4,7 +4,7 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Shoping Cart</title>
+     <title>Home Page</title>
      <link rel="stylesheet" href="./build/tailwind.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -16,12 +16,16 @@
      <div class="bg-slate-200 h-full w-full">
           <!-- APPBAR -->
           <div class="bg-slate-100 h-12 flex items-center rounded-md justify-between p-8">
-               <img src="/images/logo-Meta.png" alt="logo" class="flex h-6 md:h-6">
+               <img src="/ShopingCart-V2/images/logo-Meta.png" alt="logo" class="flex h-6 md:h-6">
                <div class="flex-1 p-2 m-2 overflow-hidden justify-start hidden sm:flex">
-                    <a class="font-bold p-2 m-2 cursor-pointer text-slate-800 hover:bg-slate-200 rounded-md">Home</a>
-                    <a class="font-bold p-2 m-2 cursor-pointer text-slate-800 hover:bg-slate-200 rounded-md">Shop</a>
-                    <a class="font-bold p-2 m-2 cursor-pointer text-slate-800 hover:bg-slate-200 rounded-md">About</a>
-                    <a class="font-bold p-2 m-2 cursor-pointer text-slate-800 hover:bg-slate-200 rounded-md">Contact</a>
+                    <a class="font-bold p-2 m-2 cursor-pointer text-slate-800 hover:bg-slate-200 rounded-md"
+                         href="./index.html">Home</a>
+                    <a class="font-bold p-2 m-2 cursor-pointer text-slate-800 hover:bg-slate-200 rounded-md"
+                         href="./Shop.html">Shop</a>
+                    <a class="font-bold p-2 m-2 cursor-pointer text-slate-800 hover:bg-slate-200 rounded-md"
+                         href="./about.html">About</a>
+                    <a class="font-bold p-2 m-2 cursor-pointer text-slate-800 hover:bg-slate-200 rounded-md"
+                         href="./contact.html">Contact</a>
                </div>
                <div class="flex gap-6 sm:gap-2">
                     <button data-modal-target="cart-modal" data-modal-toggle="cart-modal"
@@ -151,9 +155,9 @@
           <!-- Swiper -->
           <div class="swiper mySwiper cursor-pointer">
                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="/images/slide1.webp"></div>
-                    <div class="swiper-slide"><img src="/images/slide2.webp"></div>
-                    <div class="swiper-slide"><img src="/images/gif1.gif"></div>
+                    <div class="swiper-slide"><img src="/ShopingCart-V2/images/s1.jpg"></div>
+                    <div class="swiper-slide"><img src="/ShopingCart-V2/images/61CiqVTRBEL._SX3000_.jpg"></div>
+                    <div class="swiper-slide"><img src="/ShopingCart-V2/images/61zAjw4bqPL._SX3000_.jpg"></div>
                </div>
                <div class="swiper-pagination"></div>
           </div>
@@ -272,7 +276,8 @@
           <section>
                <div
                     class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
-                    <img class="w-full dark:hidden rounded-md" src="/images/product-8.jpeg" alt="dashboard image">
+                    <img class="w-full dark:hidden rounded-md" src="/ShopingCart-V2/images/product-8.jpeg"
+                         alt="dashboard image">
                     <div class="mt-2 md:mt-0">
                          <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Buy Our
                               Products For Better Life!</h2>
@@ -311,15 +316,7 @@
      </div>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-     <script type="module" src="/src/js/app.js"></script>
+     <script type="module" src="/ShopingCart-V2/src/js/app.js"></script>
 </body>
 
 </html>
-
-<!-- Title-Page-Seo -->
-<!-- <div class="flex bg-slate-300 items-center justify-between p-4">
-               <div>
-                    <h1 class="flex text-lg font-bold text-black text-center">Home</h1>
-                    <p class="flex font-semibold text-black text-start text-sm underline">Home > Shop</p>
-               </div>
-          </div> -->
