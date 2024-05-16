@@ -46,7 +46,7 @@ var swiper = new Swiper(".mySwiper", {
       buttons.forEach(btn => {
         const id = btn.dataset.id;
         // check if this product id is in cart or not?
-        const isInCart = cart.find(p => p.id === id);
+        const isInCart = cart.find(p => p.id == id);
         if (isInCart) {
           btn.innerText = "In Cart";
           btn.disabled = true;
