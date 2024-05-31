@@ -11,4 +11,5 @@ Futures:
 
 Preview Of This Project:
 
-![Screenshot_2024-05-09_20-53-51](https://github.com/Alirewa/Shoping-Website/assets/80244075/31834402-733f-4a2e-a54e-79a54e2e3724)
+![ss](https://github.com/Alirewa/Shoping-Website/assets/80244075/4ad70cf1-00d1-4a86-942d-4a9f21e287da)
+
