@@ -27,16 +27,19 @@ var swiper = new Swiper(".mySwiper", {
       products.forEach((item) => {
         results +=
         `
-      <div class="product-item bg-slate-100 rounded-md">
-              <img class="rounded-md" src=${item.imageUrl} alt=${item.id} />
-        <div>
-              <h2 class="text-xl font-semibold text-gray-900 p-2 text-center">${item.title}</h5>
-            <div class="flex p-4 items-center justify-between gap-x-4">
-              <span class="flex text-2xl font-bold text-gray-900">Price: ${item.price}</span>
-              <button type="button" data-id=${item.id} class="addtocart-btn flex-1 text-white bg-blue-700 hover:bg-blue-800 rounded-md p-2 h-10">Add To Cart</button>
-            </div>
-        </div>
-      </div>`;
+        <a href="single-product.html?p=${item.id}">
+        <div class="product-item bg-slate-100 rounded-md">
+        <img class="rounded-md" src=${item.imageUrl} alt=${item.id} />
+  <div>
+        <h2 class="text-xl font-semibold text-gray-900 p-2 text-center">${item.title}</h5>
+      <div class="flex p-4 items-center justify-between gap-x-4">
+        <span class="flex text-2xl font-bold text-gray-900">Price: ${item.price}</span>
+        <button type="button" href="#" data-id=${item.id} class="addtocart-btn flex-1 text-white bg-blue-700 hover:bg-blue-800 rounded-md p-2 h-10">Add To Cart</button>
+      </div>
+  </div>
+</div>
+        </a>
+`;
       productsDOM.innerHTML = results;
       })
     }
